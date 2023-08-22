@@ -1,0 +1,200 @@
+
+<p-toast></p-toast>
+
+<div class="card flex justify-content-center">
+  <p-dialog header="Aventura Software" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+      <p class="m-0">
+        Frontend Developer 
+        Stajyer      </p>
+  </p-dialog>
+</div>
+
+
+<div style="background-color: #eeee; padding:100px  0px 180px 0px" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 mb-5 ">
+        <div class="card sketchy">
+          <div class="col-12" style="display: flex; justify-content: center; align-items: center; ">
+            <div  style="width: 80%;" class="lottie-container" #lottieContainer></div>
+          </div>
+          <div class="col-12" style="display: flex; justify-content: center; flex-direction: column; align-items: center;" >
+            <h3>İzmir Demokrasi Üniveristesi</h3>
+            <p>31 - 07 -2023</p>
+            <p style="    text-transform: uppercase;
+            ">Yönetim Bilişim Sistemleri</p>
+            <p style="padding: 15px 30px 30px; text-align: center;">
+              Eğitim sürecim içerisinde araştırma, öz motivasyon, girişimcilik ve farklı yetenekler edinme noktasında kendimi geliştirmekteyim. Okulda geliştirdiğimiz projeler, grup çalışmalarımız dışında bireysel olarak da kendimi geliştirme konusunda istekliyim.
+            </p>
+
+  
+          
+        </div>
+        
+        
+        </div>
+      </div>
+
+
+
+
+      
+      <div class="col-md-9 col-sm-12">
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+          <div style="  width: 100%; display: flex; justify-content: space-around; align-items: center; ">
+            <hr style="width: 50%;"> 
+          <h4>Deneyimler</h4>
+          <hr style="width: 50%;"> 
+        </div>
+
+
+
+
+        
+          
+          <div class="col">
+
+            
+            
+            <div class="card" style="background-image: url('assets/ai.jpg'); background-size: cover; background-position: center; height: 200px;  ">
+
+              <div class="card-body" style="display: flex; justify-content: space-between; flex-direction: column;">
+                <h5 style="color: white;">Ege Robot</h5>
+                <!-- <p style="color: white;">Görüntü işleme üzerine yapılan bir staj</p>
+                <p style="color: white;">31 - 07 -2023</p> -->
+                <button  (click)="showDialog()" type="button" class="btn btn-warning " style="width: 110px; height: 35px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">Kazanımlar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+            <div class="card" style="background-image: url('assets/front-img.jpg'); background-size: cover; background-position: center; height: 200px;  ">
+              <div class="card-body" style="display: flex; justify-content: space-between; flex-direction: column;">
+                <h5 style="color: white;">Aventura Software</h5>
+                <!-- <p style="color: white;">Frontend üzerine yapılan bir staj</p>
+                <p style="color: white;">31 - 07 -2023</p> -->
+               
+                <button (click)="showDialog()" type="button" class="btn btn-warning " style="width: 110px; height: 35px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">Kazanımlar</button>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            
+            <div class="card" style="background-image: url('assets/backen.jpg'); background-size: cover; background-position: center; height: 200px; ">
+              <div class="card-body" style="display: flex; justify-content: space-between; flex-direction: column;">
+                <h5 style="color: white;">Rae Teknoloji</h5>
+                <!-- <p style="color: white;">Full-stack üzerine alınan bir eğitim</p>
+                <p style="color: white;">31 - 07 -2023</p> -->
+                <button (click)="showDialog()" type="button" class="btn btn-warning " style="width: 110px; height: 35px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">Kazanımlar</button>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div style="  width: 100%; display: flex; justify-content: space-around; align-items: center; margin-top: 80px; ">
+            <hr style="width: 50%;"> 
+          <h4>Beceriler</h4>
+          <hr style="width: 50%;"> 
+        </div>
+        <div class="col">
+    
+            <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+              <div class="card-body">
+                <h5 style="color: white;">Python</h5>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+    
+          <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+            <div class="card-body">
+              <h5 style="color: white;">Javascript - Typescript</h5>
+            </div>
+          </div>
+      </div>
+      <div class="col">
+    
+        <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+          <div class="card-body">
+            <h5 style="color: white;">.Net</h5>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+    
+      <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+        <div class="card-body">
+          <h5 style="color: white;">C#</h5>
+        </div>
+      </div>
+  </div>
+  <div class="col">
+    
+    <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+      <div class="card-body">
+        <h5 style="color: white;">React</h5>
+      </div>
+    </div>
+</div>
+<div class="col">
+    
+  <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+    <div class="card-body">
+      <h5 style="color: white;">Angular</h5>
+    </div>
+  </div>
+</div>
+<div class="col">
+    
+  <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+    <div class="card-body">
+      <h5 style="color: white;">Git - Jira</h5>
+    </div>
+  </div>
+</div>
+<div class="col">
+
+<div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+  <div class="card-body">
+    <h5 style="color: white;">Html - Css</h5>
+  </div>
+</div>
+</div>
+  <div class="col">
+
+    <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+      <div class="card-body">
+        <h5 style="color: white;">PostrgreSQL</h5>
+      </div>
+    </div>
+  </div>
+  
+
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-toast></p-toast>
+
+
+
+
+<!-- deneme -->
+
+
+
+
+
+
+
+
+
