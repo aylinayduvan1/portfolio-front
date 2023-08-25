@@ -51,7 +51,6 @@ import { MyProfileInfoComponent } from './page/managment/my-profile-info/my-prof
 import { NavbarComponent } from './page/managment/navbar/navbar.component';
 import { FooterComponent } from './page/managment/footer/footer.component';
 import { RegisterPageComponent } from './modules/register-page/register-page.component';
-import { CommetnsComponent } from './commetns/commetns.component';
 import { ContentComponent } from './content/content.component';
 @NgModule({
 
@@ -67,7 +66,6 @@ import { ContentComponent } from './content/content.component';
     NavbarComponent,
     FooterComponent,
     RegisterPageComponent,
-    CommetnsComponent,
     ContentComponent
 
 
