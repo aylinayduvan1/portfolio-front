@@ -1,0 +1,66 @@
+
+
+
+<div class="container d-flex justify-content-center align-items-center " style="height: 100vh;">
+    
+    <div class="card col-8 p-5" style="  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+        <div *ngFor="let advert of advert">
+
+           <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 data-shadow='dang!'>{{advert.degree}}</h1>
+            <p-button (click)="openEditDialog(advert.id)"  icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning"></p-button>
+
+          
+           </div>
+            <h6 style="color: rgb(0, 0, 0);" class="mb-4 mt-4">{{advert.fullname}}</h6>
+  
+            <p style="width: 100%; line-height: 40px; color: rgb(14, 14, 14);">
+                {{advert.advert_text}}
+            </p>
+
+           
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" [class.show]="editDialog " *ngIf="advertEdit">
+    <!--CSS'i düzenlemezsem çalışmaz-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">İlan Güncelle</h5>
+        </div>
+        <div class="modal-body">
+          <form ngModelOptions="{standalone: true}">
+            <div class="row">
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_title" [(ngModel)]="advertEdit.degree"  pInputText
+                    placeholder="Ünvanı girin" class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_title"> Ünvan</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="advertEdit.fullname" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Tam ad</label>
+                </span>
+              </div>
+            </div>
+              
+              
+              <textarea cols="30" rows="5" name="advert_no" [(ngModel)]="advertEdit.advert_text" pInputText class="w-100"
+              style="border: solid 1px rgba(181, 181, 181, 0.267);" required ></textarea>
+            
+
+          </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn" (click)="closeEditModal()" style="width: 30%;">İptal</button>
+            <button pButton pRipple  class="p-button-text" *ngIf="advertEdit" (click)="onUpdate(advertEdit.id, advertEdit)">Güncelle</button>
+          </div>
+      </div>
+    </div>
+  </div>

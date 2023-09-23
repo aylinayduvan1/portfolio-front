@@ -55,9 +55,6 @@
         
           
           <div class="col">
-
-            
-            
             <div class="card" style="background-image: url('assets/ai.jpg'); background-size: cover; background-position: center; height: 200px;  ">
 
               <div class="card-body" style="display: flex; justify-content: space-between; flex-direction: column;">
@@ -95,88 +92,25 @@
           
 
 
+
+
+          <!-- beceriler  -->
+
+
           <div style="  width: 100%; display: flex; justify-content: space-around; align-items: center; margin-top: 80px; ">
             <hr style="width: 50%;"> 
           <h4>Beceriler</h4>
           <hr style="width: 50%;"> 
         </div>
-        <div class="col">
+        <div class="col" *ngFor="let skills of skills">
     
-            <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
+            <div class="card  "  style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
               <div class="card-body">
-                <h5 style="color: white;">Python</h5>
+                <h5 style="color: white;">{{skills.skill_name}}</h5>
               </div>
             </div>
         </div>
-        <div class="col">
-    
-          <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-            <div class="card-body">
-              <h5 style="color: white;">Javascript - Typescript</h5>
-            </div>
-          </div>
-      </div>
-      <div class="col">
-    
-        <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-          <div class="card-body">
-            <h5 style="color: white;">.Net</h5>
-          </div>
         </div>
-    </div>
-    <div class="col">
-    
-      <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-        <div class="card-body">
-          <h5 style="color: white;">C#</h5>
-        </div>
-      </div>
-  </div>
-  <div class="col">
-    
-    <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-      <div class="card-body">
-        <h5 style="color: white;">React</h5>
-      </div>
-    </div>
-</div>
-<div class="col">
-    
-  <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-    <div class="card-body">
-      <h5 style="color: white;">Angular</h5>
-    </div>
-  </div>
-</div>
-<div class="col">
-    
-  <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-    <div class="card-body">
-      <h5 style="color: white;">Git - Jira</h5>
-    </div>
-  </div>
-</div>
-<div class="col">
-
-<div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-  <div class="card-body">
-    <h5 style="color: white;">Html - Css</h5>
-  </div>
-</div>
-</div>
-  <div class="col">
-
-    <div class="card  " style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53));" >
-      <div class="card-body">
-        <h5 style="color: white;">PostrgreSQL</h5>
-      </div>
-    </div>
-  </div>
-  
-
-
-        </div>
-        
       </div>
     </div>
   </div>

@@ -1,0 +1,131 @@
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+  <div class="container d-flex justify-content-center align-items-center flex-column" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); padding: 30px; border-radius: 8px; width: 90%;" >
+    <p-toast></p-toast>
+      <p-toolbar styleClass="mb-4 gap-2" class="toolbar">
+        <h5>  Tüm Beceriler Listesi</h5>
+        <p-button (click)="showDialog()"> Ekle</p-button>
+      </p-toolbar>
+
+
+
+  <div class="row col-12">
+            
+    <div class="col-md-4 col-sm-12 mb-3"  *ngFor="let skills of skills">
+        
+        <div class="card p-2" >
+            <div class="row">
+          <div class="card-body col-9"  >
+            <h6>{{skills.skill_data}}</h6>
+            <h5>{{skills.skill_name}}</h5>
+          </div>
+         
+          <div  class="col-3 " style=" display: flex; flex-direction: column ; gap: 3px;" >
+                <!--sil-- openwindow-->
+                <p-button (click)="onDelete(skills.id)"  icon="pi pi-trash" styleClass="p-button-rounded p-button-danger p-button-outlined "></p-button>
+                
+          
+                <span class="button-space" style="margin-right: 10px;"></span>
+  
+                <p-button (click)="openEditDialog(skills.id)"  icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
+        </div>
+        </div>
+        </div>
+
+        
+    </div>
+   
+</div>
+    
+
+<div class="modal fade" tabindex="-1" [class.show]="editDialog " *ngIf="skillEdit">
+  <!--CSS'i düzenlemezsem çalışmaz-->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Beceri Durumunu Güncelle</h5>
+      </div>
+      <div class="modal-body">
+        <form ngModelOptions="{standalone: true}">
+          <div class="row">
+            <div class="col-6 mb-2 mt-3">
+              <span class="p-float-label">
+                <input name="advert_title" [(ngModel)]="skillEdit.skill_data"  pInputText
+                  placeholder="Ünvanı girin" class="w-100"
+                  style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                <label htmlFor="advert_title"> Ünvan</label>
+              </span>
+            </div>
+            <div class="col-6 mb-2 mt-3">
+              <span class="p-float-label">
+                <input name="advert_date" [(ngModel)]="skillEdit.skill_name" pInputText class="w-100"
+                  style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                <label htmlFor="advert_date">Tam ad</label>
+              </span>
+            </div>
+          </div>
+            
+            
+            
+          
+
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn" (click)="closeEditModal()" style="width: 30%;">İptal</button>
+          <button pButton pRipple  class="p-button-text" *ngIf="skillEdit" (click)="onUpdate(skillEdit.id, skillEdit)">Güncelle</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" tabindex="-1" [class.show]="visible " *ngIf="skillRequest">
+  <!--CSS'i düzenlemezsem çalışmaz-->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Beceri Ekle</h5>
+      </div>
+      <div class="modal-body">
+        <form ngModelOptions="{standalone: true}">
+          <div class="row">
+            <div class="col-6 mb-2 mt-3">
+              <span class="p-float-label">
+                <input name="advert_title" [(ngModel)]="skillRequest.skill_data"  pInputText
+                  placeholder="Ünvanı girin" class="w-100"
+                  style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                <label htmlFor="advert_title"> Ünvan</label>
+              </span>
+            </div>
+            <div class="col-6 mb-2 mt-3">
+              <span class="p-float-label">
+                <input name="advert_date" [(ngModel)]="skillRequest.skill_name" pInputText class="w-100"
+                  style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                <label htmlFor="advert_date">Tam ad</label>
+              </span>
+            </div>
+          </div>
+            
+            
+            
+          
+
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn" (click)="closeEditModal()" style="width: 30%;">İptal</button>
+          <button pButton pRipple  class="p-button-text"  (click)="onCreate(skillRequest) ">Ekle</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

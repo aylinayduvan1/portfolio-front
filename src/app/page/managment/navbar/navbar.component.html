@@ -12,13 +12,13 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <div class="navbar-nav col-sm-12 col-md-12"  style=" display: flex; align-items: center; justify-content: end; gap: 35px; ">
          
-          <a style="color: white;" class="nav-link" routerLink="/education" routerLinkActive="active" aria-current="page" href="#">İçerik</a>
-          <a style="color: white;" class="nav-link" routerLink="/education" routerLinkActive="active" aria-current="page" href="#">Yorumlar</a>
+          <a class="nav-link" routerLink="/education" routerLinkActive="active" aria-current="page" href="#">İçerik</a>
+          <a  class="nav-link" routerLink="/education" routerLinkActive="active" aria-current="page" href="#">Yorumlar</a>
            <!-- Eğer kullanıcı giriş yapmışsa /profile sayfasına yönlendir -->
-           <a style="color: white;" *ngIf="isLoggedIn()" class="nav-link active" routerLink="/dashboard" routerLinkActive="active" aria-current="page" href="#">Profilim</a>
+           <a  *ngIf="isLoggedIn()" class="nav-link active" routerLink="/dashboard" routerLinkActive="active" aria-current="page" href="#">Profilim</a>
 
            <!-- Eğer kullanıcı giriş yapmamışsa /login sayfasına yönlendir -->
-           <a style="color: white;" *ngIf="!isLoggedIn()" class="nav-link active" routerLink="/login" routerLinkActive="active" aria-current="page" href="#">Giriş Yap</a>           
+           <a *ngIf="!isLoggedIn()" class="nav-link active" routerLink="/login" routerLinkActive="active" aria-current="page" href="#">Giriş Yap</a>           
           <p-avatar icon="pi pi-home" styleClass="mr-2" shape="circle" ></p-avatar>
 
         </div>

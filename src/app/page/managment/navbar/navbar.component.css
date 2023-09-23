@@ -1,0 +1,9 @@
+.navbar-nav .nav-link:hover {
+    color: rgb(196, 196, 196); 
+    transition: ease 0.5s;
+  }
+
+
+.navbar-nav .nav-link {
+    color: white; 
+}

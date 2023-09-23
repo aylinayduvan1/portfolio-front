@@ -1,0 +1,166 @@
+<div style="display: flex; justify-content: center; align-items:center; flex-direction: column; height: 100vh; ">
+    <div class="w-75 px-5 py-2 my-2 " style=" display: flex; align-items: center; justify-content: space-between;">
+        
+
+    </div>
+    <div class="container w-75">
+        <div class="card" style=" box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+            <p-carousel [value]="experiences" [numVisible]="1" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions">
+                <ng-template let-experiences pTemplate="item">
+                    <div class="col-12 border-1 surface-border border-round m-2  py-5 px-5">
+                      
+                        <div>
+                            <h5 class="mb-3">{{ experiences.company }}</h5>
+                            <h6 class="mb-3"> {{ experiences.experience_data }}</h6>
+
+                            <p class="mb-3">{{ experiences.company_experience }}</p>
+                            <h6 class="mb-3"> Yetenekler: {{ experiences.experience_skill }}</h6>
+                            <div  class="col-3 " style=" display: flex; gap: 4px;" >
+                                <!--sil-- openwindow-->
+                                <p-button (click)="onDelete(experiences.id)" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger p-button-outlined "></p-button>
+                                
+                          
+                                <span class="button-space" style="margin-right: 10px;"></span>
+                  
+                                <p-button (click)="openEditDialog(experiences.id)"   icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
+                        
+                                <span class="button-space" style="margin-right: 10px;"></span>
+                  
+                                <p-button (click)="showDialog()"   icon="pi pi-plus" styleClass="p-button-rounded p-button-warning p-button-outlined"></p-button>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" [class.show]="editDialog " *ngIf="experienceEdit">
+    <!--CSS'i düzenlemezsem çalışmaz-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Deneyim Durumunu Güncelle</h5>
+        </div>
+        <div class="modal-body">
+          <form ngModelOptions="{standalone: true}">
+            <div class="row">
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_title" [(ngModel)]="experienceEdit.company"  pInputText
+                    placeholder="Ünvanı girin" class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_title"> Şirket adı</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceEdit.company_experience" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Beceri hakkında</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceEdit.experience_skill" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Beceriler</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceEdit.experience_data" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Deneyim süreci</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceEdit.experience_img" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Deneyim resmi</label>
+                </span>
+              </div>
+            </div>
+              
+              
+              
+            
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn" (click)="closeEditModal()" style="width: 30%;">İptal</button>
+            <button pButton pRipple  class="p-button-text" *ngIf="experienceEdit" (click)="onUpdate(experienceEdit.id, experienceEdit)">Güncelle</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div class="modal fade" tabindex="-1" [class.show]="visible " *ngIf="experienceRequest">
+    <!--CSS'i düzenlemezsem çalışmaz-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Beceri Ekle</h5>
+        </div>
+        <div class="modal-body">
+          <form ngModelOptions="{standalone: true}">
+            <div class="row">
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_title" [(ngModel)]="experienceRequest.company"  pInputText
+                    placeholder="Ünvanı girin" class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_title">Şirket adı</label>
+                </span>
+              </div>
+              <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceRequest.company_experience" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Deneyim hakkında</label>
+                </span>
+              </div>
+               <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceRequest.experience_skill" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Yetenekler</label>
+                </span>
+              </div> <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceRequest.experience_data" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Deneyeim süresi</label>
+                </span>
+              </div> <div class="col-6 mb-2 mt-3">
+                <span class="p-float-label">
+                  <input name="advert_date" [(ngModel)]="experienceRequest.experience_img" pInputText class="w-100"
+                    style="border: solid 1px rgba(181, 181, 181, 0.267);" required>
+                  <label htmlFor="advert_date">Deneyim resmi</label>
+                </span>
+              </div>
+            </div>
+              
+              
+              
+            
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn" (click)="closeAddModal()" style="width: 30%;">İptal</button>
+            <button pButton pRipple  class="p-button-text"  (click)="onCreate(experienceRequest) ">Ekle</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  

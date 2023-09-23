@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import {  ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
+import { ApiService } from 'src/app/services/api/api.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { MessageService } from 'primeng/api';
+import { Skill } from '../models/skill.modal';
 
 @Component({
   selector: 'app-content',
@@ -8,16 +13,23 @@ import { AnimationItem } from 'lottie-web';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
+
+    constructor(
+      private readonly apiService: ApiService, 
+      private router: Router,
+      private messageService: MessageService,
+      private authService: AuthService
+  
+    )
+     {}
+
   visible: boolean = false;
 
   showDialog() {
     this.visible = true;
 }
 
-ngOnInit():void {
-  this.initializeAnimation();
 
-  }
     //animasyon
     @ViewChild('lottieContainer', { static: true }) lottieContainer!: ElementRef;
     animation!: AnimationItem;
@@ -40,4 +52,22 @@ ngOnInit():void {
         });
     
       }
+
+
+      skills:Skill[] = []
+
+      refresh() {
+        this.apiService.getAllEntities(Skill).subscribe((response) => {
+          this.skills = response.data;
+          console.log('Banner yazısı:', this.skills); // Eklendi
+        });
+      }
+       ngOnInit() {
+        this.initializeAnimation();
+    
+        this.refresh();
+    }
+
+    
+    
 }

@@ -43,15 +43,24 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ManagmentComponent } from './page/managment/managment.component';
 import { HomepageComponent } from './page/homepage/homepage.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import { PanelmenuComponent } from './page/managment/panelmenu/panelmenu.component';
+import { PanelmenuComponent } from './page/managment/components/panelmenu/panelmenu.component';
 import { HideMenuLabelsDirective } from './hide-menu-labels.directive';
-import { DashboardContentComponent } from './page/managment/dashboard-content/dashboard-content.component';
+import { DashboardContentComponent } from './page/managment/components/dashboard-content/dashboard-content.component';
 import { SidebarModule } from 'primeng/sidebar';
-import { MyProfileInfoComponent } from './page/managment/my-profile-info/my-profile-info.component';
+import { MyProfileInfoComponent } from './page/managment/components/my-profile-info/my-profile-info.component';
 import { NavbarComponent } from './page/managment/navbar/navbar.component';
 import { FooterComponent } from './page/managment/footer/footer.component';
 import { RegisterPageComponent } from './modules/register-page/register-page.component';
 import { ContentComponent } from './content/content.component';
+import { ExpriencePageComponent } from './page/managment/components/exprience-page/exprience-page.component';
+import { EducationPageComponent } from './page/managment/components/education-page/education-page.component';
+import { SkillPageComponent } from './page/managment/components/skill-page/skill-page.component';
+import { CommentPageComponent } from './page/managment/components/comment-page/comment-page.component';
+import { AdvertPageComponent } from './page/managment/components/advert-page/advert-page.component';
+
+import { PaginatorModule } from 'primeng/paginator';
+import { CarouselModule } from 'primeng/carousel';
+
 @NgModule({
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -66,7 +75,12 @@ import { ContentComponent } from './content/content.component';
     NavbarComponent,
     FooterComponent,
     RegisterPageComponent,
-    ContentComponent
+    ContentComponent,
+    ExpriencePageComponent,
+    EducationPageComponent,
+    SkillPageComponent,
+    CommentPageComponent,
+    AdvertPageComponent
 
 
   ],
@@ -105,7 +119,9 @@ import { ContentComponent } from './content/content.component';
     CalendarModule,
     ReactiveFormsModule,
     PanelMenuModule,
-    SidebarModule
+    SidebarModule,
+    PaginatorModule,
+    CarouselModule
   ],
   providers: [AuthService,
     MessageService,

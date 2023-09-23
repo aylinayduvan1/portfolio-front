@@ -2,6 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AnimationItem } from 'lottie-web';
+import { MessageService } from 'primeng/api';
+import { Advert } from 'src/app/models/advert.modal';
+import { ResponseStatus } from 'src/app/models/response/base-response.model';
+import { ApiService } from 'src/app/services/api/api.service';
 
 
 @Component({
@@ -10,11 +14,30 @@ import { AnimationItem } from 'lottie-web';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-
   constructor(
-    private authService: AuthService,
-    private router: Router) {
+    private readonly apiService: ApiService, 
+    private router: Router,
+    private messageService: MessageService,
+    private authService: AuthService
+
+  )
+   {}
+
+  advert:Advert[] = []
+
+  refresh() {
+    this.apiService.getAllEntities(Advert).subscribe((response) => {
+      this.advert = response.data;
+      console.log('Banner yazısı:', this.advert); // Eklendi
+    });
   }
+   ngOnInit() {
+    this.initializeAnimation();
+
+    this.refresh();
+}
+
+
 
 
   // Eksik olan isLoggedIn() metodu AuthService'den alınarak buraya ekleniyor.
@@ -33,9 +56,7 @@ logOut(): void {
   @ViewChild('lottieContainer', { static: true }) lottieContainer!: ElementRef;
   animation!: AnimationItem;
 
-    ngOnInit() {
-      this.initializeAnimation();
-    }
+  
   
     ngOnDestroy() {
       if (this.animation) {
@@ -61,3 +82,9 @@ logOut(): void {
     //twit işlemleri
     
 }
+
+
+
+  
+  
+

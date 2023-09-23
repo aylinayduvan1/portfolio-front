@@ -2,7 +2,7 @@
 <div style="display: flex; flex-direction: column; height: 100vh;">
 
   <div style="display: flex; flex: 1; ">
-    <div class="sidebar" [ngClass]="{'open': isSidebarOpen}" style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53)); height: 100vh;">
+    <div class="sidebar" [ngClass]="{'open': isSidebarOpen}" style="background-image: linear-gradient(to bottom right, rgb(31, 57, 124), rgb(12, 23, 53)); height: 100%;">
       <!-- Sidebar içeriği burada yer alacak -->
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
       <div style=" width: 100%; display: flex; justify-content: end; padding-right: 15px;" >
@@ -29,10 +29,22 @@
         <i class="pi pi-users"></i>
         <a *ngIf="!isSidebarOpen"  >Kullanıcılar</a>
        </div>
-       <div class="col mb-3  p-3 m-2" routerLink="all-tweet" (click)="$event.stopPropagation()" *ngIf="currentUser.userType === 0 " >
-        <i class="pi pi-book"></i>
-        <a *ngIf="!isSidebarOpen"  >Tüm Tivitler</a>
+       <div class="col mb-3  p-3 m-2" routerLink="skill" (click)="$event.stopPropagation()" *ngIf="currentUser.userType === 0 " >
+        <i class="pi pi-server"></i>
+        <a *ngIf="!isSidebarOpen"  >Beceriler</a>
        </div>
+       <div class="col mb-3  p-3 m-2" routerLink="experience" (click)="$event.stopPropagation()" *ngIf="currentUser.userType === 0 " >
+        <i class="pi pi-id-card"></i>
+        <a *ngIf="!isSidebarOpen"  >Deneyimler</a>
+       </div>
+       <div class="col mb-3  p-3 m-2" routerLink="education" (click)="$event.stopPropagation()" *ngIf="currentUser.userType === 0 " >
+        <i class="pi pi-briefcase"></i>
+        <a *ngIf="!isSidebarOpen"  >Eğitim</a>
+       </div>
+       <div class="col mb-3  p-3 m-2" routerLink="advert" (click)="$event.stopPropagation()" *ngIf="currentUser.userType === 0 " >
+        <i class="pi pi-book"></i>
+        <a *ngIf="!isSidebarOpen"  >Tanıtım yazısı</a>
+       </div> 
        <div class="col mb-3  p-3 m-2"  (click)="logOut()"  routerLink="login">
         <i class="pi pi-sign-out "></i>
         <a *ngIf="!isSidebarOpen" >Çıkış</a>

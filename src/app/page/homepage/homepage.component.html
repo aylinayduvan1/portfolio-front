@@ -12,21 +12,15 @@
           <div  class="lottie-container" #lottieContainer></div>
         </div>    
       <div class="col-md-6 col-sm-12 p-4" style=" display: flex; justify-content: center; align-items: center; flex-direction: column; "> 
-        <div class="col-md-10 col-sm-12">  
-          <h1 data-shadow='dang!'>Jr. Software Developer</h1>
-          <h6 style="color: white;" class="mb-4 mt-4">Aylin Ayduvan</h6>
+        <div class="col-md-10 col-sm-12" *ngFor="let advert of advert">  
+          <h1 data-shadow='dang!'>{{advert.degree}}</h1>
+          <h6 style="color: white;" class="mb-4 mt-4">{{advert.fullname}}</h6>
 
-          <p style="width: 100%; line-height: 40px; color: white;">
-            İzmir Demokrasi Üniversitesi Yönetim Bilişim Sistemleri bölümünden mezun oldum. 
-            Yazılım geliştirme konusundaki tutkumla hem frontend hem de backend alanında deneyim kazandım.
-            İlgini çekiyorsam, benimle iletişime geçmekten çekinme!
-
-
-          </p>
+          <p style="width: 100%; line-height: 40px; color: white;">{{advert.advert_text}}</p>
        <div style="display: flex; justify-content: space-between;">
         <a href="#" class="button mt-4  " >
           <span class=" pi pi-phone " style="padding: 15px; background-color: rgb(237, 172, 42); font-size: 20px;"></span>
-          <span class="text">Benimle iletişime geçin</span>
+          <span class="text">aylinnayduvann@icloud.com</span>
           
         </a>
 
